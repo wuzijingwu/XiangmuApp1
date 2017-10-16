@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical"
+    >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="#00000000">
+
+        <ImageView
+            android:id="@+id/goback"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:padding="5dp"
+            android:src="@mipmap/back" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/fenlei_border">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:src="@mipmap/a_1" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+
+                android:hint="Iphone8立即预约"
+                android:paddingLeft="10dp"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="10dp"
+                android:src="@mipmap/as1" />
+
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/seek_checkbox"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/buju_button"
+            android:button="@null"
+            android:padding="10dp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#c5c1c1" />
+    //排序栏
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp">
+
+        <RadioGroup
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawablePadding="-10dp"
+                android:drawableRight="@drawable/jiantou"
+                android:gravity="center"
+                android:paddingRight="10dp"
+                android:text="综合"
+
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:gravity="center"
+                android:text="销量"
+                android:textColor="@drawable/radio_color"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:id="@+id/price_sort"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawablePadding="-10dp"
+                android:drawableRight="@drawable/shuangjiantou"
+                android:gravity="center"
+                android:paddingRight="10dp"
+                android:text="价格"
+                android:textColor="@drawable/radio_color"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:gravity="center"
+                android:text="店铺"
+                android:textColor="@drawable/radio_color"
+                android:textSize="20sp" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="筛选"
+            android:textColor="#ff0000"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#c5c1c1" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:paddingBottom="2dp">
+
+
+        <CheckBox
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="2dp"
+            android:layout_weight="1"
+            android:background="@drawable/seekborder"
+            android:button="@null"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="京东配送"
+            android:textColor="@drawable/radio_color"
+            android:textSize="18sp" />
+
+        <CheckBox
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="2dp"
+            android:layout_weight="1"
+            android:background="@drawable/seekborder"
+            android:button="@null"
+            android:drawablePadding="-10dp"
+            android:drawableRight="@drawable/jiantou"
+            android:gravity="center"
+            android:paddingRight="18dp"
+            android:text="品牌"
+            android:textColor="@drawable/radio_color"
+            android:textSize="18sp" />
+
+        <CheckBox
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="2dp"
+            android:layout_weight="1"
+            android:background="@drawable/seekborder"
+            android:button="@null"
+            android:drawablePadding="-10dp"
+            android:drawableRight="@drawable/jiantou"
+            android:gravity="center"
+            android:paddingRight="18dp"
+            android:text="人群"
+            android:textColor="@drawable/radio_color"
+            android:textSize="18sp" />
+
+        <CheckBox
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="2dp"
+            android:layout_weight="1"
+
+            android:button="@null"
+            android:drawablePadding="-10dp"
+            android:drawableRight="@drawable/jiantou"
+            android:gravity="center"
+            android:paddingRight="18dp"
+            android:text="机芯"
+            android:textColor="@drawable/radio_color"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#c5c1c1" />
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipyRefreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/seek_recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                ></android.support.v7.widget.RecyclerView>
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+        <ImageView
+            android:id="@+id/toTop"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="30dp"
+            android:layout_marginRight="20dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/ala"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+
+</LinearLayout>
