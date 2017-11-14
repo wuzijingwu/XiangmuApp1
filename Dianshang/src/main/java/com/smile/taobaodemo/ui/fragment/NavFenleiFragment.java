@@ -15,9 +15,14 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.smile.taobaodemo.R;
+import com.smile.taobaodemo.dao.MyApplication;
 import com.smile.taobaodemo.bean.Fenlei;
 import com.smile.taobaodemo.bean.Fm_FenLei_Left_Bean;
 import com.smile.taobaodemo.bean.Fm_FenLei_Right_Bean;
+import com.smile.taobaodemo.presenter.Fm_FenLei_presenter;
+import com.smile.taobaodemo.ui.adapter.FM_FenLei_LeftAdapter;
+import com.smile.taobaodemo.ui.adapter.FM_Fenlei_RightAdapter;
+import com.smile.taobaodemo.view.FM_FenLei_View;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.loader.ImageLoader;
@@ -41,7 +46,6 @@ public class NavFenleiFragment extends Fragment implements FM_FenLei_View {
     private Fm_FenLei_presenter fm_fenLei_presenter;
     private String LeftUrlpath = "http://" + MyApplication.getMyIP() + "/mobile/index.php?act=goods_class";//左侧分类接口
     private String RightUrlpath = "http://" + MyApplication.getMyIP() + "/mobile/index.php?act=goods_class&gc_id=1";//右侧子类接口
-
     private List<Fm_FenLei_Left_Bean.DatasBean.ClassListBean> left_list;
     private Banner right_vp;
     private RecyclerView right_gridview;
@@ -129,7 +133,6 @@ public class NavFenleiFragment extends Fragment implements FM_FenLei_View {
 
                 //自定义点击事件,得到左侧分类的下标id,然后传给右侧的recyclerView使用
                 adapter.setOnItemClickListener(new FM_FenLei_LeftAdapter.OnItemClickListener() {
-
                     private int childCount = 0;
                     private int middlechild = 0;
 

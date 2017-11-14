@@ -1,8 +1,6 @@
-package com.smile.taobaodemo.ui.fragment;
+package com.smile.taobaodemo.bean;
 
-/**
- * Created by dell on 2017/10/8.
- */
+
 
 import android.os.Handler;
 import android.os.Looper;

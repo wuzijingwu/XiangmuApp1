@@ -21,6 +21,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.smile.taobaodemo.R;
 import com.smile.taobaodemo.bean.Mews;
+import com.smile.taobaodemo.bean.Okhttp;
 
 import java.io.File;
 import java.io.IOException;
@@ -28,9 +29,7 @@ import java.util.List;
 
 import okhttp3.Request;
 
-/**
- * Created by dell on 2017/10/8.
- */
+
 
 public class Fragment3 extends Fragment implements XRecyclerView.LoadingListener {
 

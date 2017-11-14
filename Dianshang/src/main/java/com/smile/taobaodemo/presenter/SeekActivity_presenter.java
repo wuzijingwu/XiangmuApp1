@@ -1,5 +1,9 @@
-package com.smile.taobaodemo.ui.fragment;
+package com.smile.taobaodemo.presenter;
 
+
+import com.smile.taobaodemo.model.SeekActivityModle;
+import com.smile.taobaodemo.ui.fragment.BasePresenter;
+import com.smile.taobaodemo.view.SeekActivity_View;
 
 public class SeekActivity_presenter extends BasePresenter<SeekActivity_View> {
 

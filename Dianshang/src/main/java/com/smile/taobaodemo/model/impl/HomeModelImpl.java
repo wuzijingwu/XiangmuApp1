@@ -17,10 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * @author Smile Wei
- * @since 2017/03/01.
- */
+
 
 public class HomeModelImpl implements HomeLoadModel {
     @Override

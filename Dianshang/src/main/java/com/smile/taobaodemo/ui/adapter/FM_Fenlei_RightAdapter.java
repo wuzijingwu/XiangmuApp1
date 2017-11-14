@@ -1,4 +1,4 @@
-package com.smile.taobaodemo.ui.fragment;
+package com.smile.taobaodemo.ui.adapter;
 
 import android.app.Activity;
 import android.content.Context;
@@ -16,7 +16,7 @@ import com.smile.taobaodemo.R;
 import com.smile.taobaodemo.bean.Fm_FenLei_Right_Bean;
 import com.smile.taobaodemo.bean.Fm_Fenlei_Right_gv_Bean;
 import com.smile.taobaodemo.ui.activity.SeekActivity;
-import com.smile.taobaodemo.ui.adapter.FM_FenLei_Right_Gv_Adapter;
+import com.smile.taobaodemo.dao.MyApplication;
 
 import java.io.IOException;
 import java.util.List;

@@ -5,10 +5,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 
-/**
- * @author Smile Wei
- * @since 2016.08.11
- */
+
 public class LoadMoreRecyclerView extends RecyclerView {
     private OnLoadMoreListener loadMoreListener;
 

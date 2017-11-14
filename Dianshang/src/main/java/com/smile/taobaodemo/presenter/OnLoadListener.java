@@ -1,8 +1,7 @@
 package com.smile.taobaodemo.presenter;
 
 /**
- * @author Smile Wei
- * @since 2016/7/26.
+ *
  * 在Presenter层实现，给Model层回调，更改View层的状态，确保Model层不直接操作View层
  */
 public interface OnLoadListener<T> {

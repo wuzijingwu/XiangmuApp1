@@ -4,10 +4,6 @@ import com.smile.taobaodemo.base.Type;
 
 import java.util.List;
 
-/**
- * @author Smile Wei
- * @since 2016/10/8.
- */
 
 public class LivePlay {
 

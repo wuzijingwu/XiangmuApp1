@@ -20,6 +20,7 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.smile.taobaodemo.R;
+import com.smile.taobaodemo.bean.Okhttp;
 import com.smile.taobaodemo.bean.TuiJian;
 import com.smile.taobaodemo.ui.activity.Jingxuanxiangqing;
 
@@ -97,9 +98,7 @@ public class Fragment1 extends Fragment {
 
             @Override
             public void requestFailure(Request request, IOException e) {
-
             }
-
             @Override
             public void requestSuccess(String result) throws Exception {
                 Gson gson = new Gson();

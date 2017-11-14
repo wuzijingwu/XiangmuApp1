@@ -1,14 +1,338 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="#FFFFFF"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="@string/bottom_navigation_item_user" />
+    <RelativeLayout
+        android:id="@+id/login_register_layout"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@mipmap/my_top">
 
-</RelativeLayout>
+        <ImageView
+            android:id="@+id/hander"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30dp"
+            android:src="@mipmap/b3h" />
+
+        <TextView
+            android:id="@+id/login_register_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@id/hander"
+            android:text="登录/注册 &gt;"
+            android:textColor="#ffffff" />
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="60dp"
+            android:layout_marginTop="30dp"
+            android:src="@mipmap/a9w" />
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="30dp"
+            android:src="@mipmap/a9t" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_alignParentBottom="true"
+            android:background="@mipmap/my_top_down" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="65dp">
+
+        <RadioGroup
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawablePadding="10dp"
+                android:drawableTop="@mipmap/daifukuan"
+                android:gravity="center"
+                android:text="待付款"
+                android:textColor="#808080" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawablePadding="10dp"
+                android:drawableTop="@mipmap/daishouhuo"
+                android:gravity="center"
+                android:text="待收货"
+                android:textColor="#808080" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawablePadding="10dp"
+                android:drawableTop="@mipmap/daipingjia"
+                android:gravity="center"
+                android:text="评价"
+                android:textColor="#808080" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawablePadding="10dp"
+                android:drawableTop="@mipmap/tuihuan"
+                android:gravity="center"
+                android:text="退换/售后"
+                android:textColor="#808080" />
+
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="5dp"
+                android:background="#cecaca" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:button="@null"
+                android:drawablePadding="10dp"
+                android:drawableTop="@mipmap/dingdan"
+                android:gravity="center"
+                android:text="我的订单"
+                android:textColor="#808080" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#cecaca" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="4"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawablePadding="10dp"
+                android:gravity="center"
+                android:text="0\n\n京豆"
+                android:textColor="#808080" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawablePadding="10dp"
+                android:gravity="center"
+                android:text="0\n\n优惠券"
+                android:textColor="#808080" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawablePadding="10dp"
+                android:gravity="center"
+                android:text="0.00\n\n白条"
+                android:textColor="#808080" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawablePadding="10dp"
+                android:gravity="center"
+                android:text="0\n\n京东E卡"
+                android:textColor="#808080" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            android:background="#cecaca" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="16dp"
+            android:button="@null"
+            android:drawablePadding="10dp"
+            android:drawableTop="@mipmap/qianbao"
+            android:gravity="center_vertical"
+            android:text="我的钱包"
+            android:textColor="#808080" />
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_marginTop="3dp"
+        android:background="#f0ebeb" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginTop="5dp">
+
+        <RadioGroup
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawablePadding="10dp"
+                android:drawableTop="@mipmap/am6"
+                android:gravity="center"
+                android:text="商品关注"
+                android:textColor="#808080" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawablePadding="10dp"
+                android:drawableTop="@mipmap/am8"
+                android:gravity="center"
+                android:text="店铺关注"
+                android:textColor="#808080" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawablePadding="10dp"
+                android:drawableTop="@mipmap/neirongguanzhu"
+                android:gravity="center"
+                android:text="内容关注"
+                android:textColor="#808080" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawablePadding="10dp"
+                android:drawableTop="@mipmap/liulanjilu"
+                android:gravity="center"
+                android:text="浏览记录"
+                android:textColor="#808080" />
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#cecaca" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_marginTop="5dp"
+        android:weightSum="4">
+
+        <RadioGroup
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawablePadding="10dp"
+                android:drawableTop="@mipmap/huodong"
+                android:gravity="center"
+                android:text="我的活动"
+                android:textColor="#808080" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawablePadding="10dp"
+                android:drawableTop="@mipmap/shequ"
+                android:gravity="center"
+                android:text="社区\n有料有福利"
+                android:textColor="#808080" />
+
+            <RadioButton
+                android:id="@+id/radioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawablePadding="10dp"
+                android:drawableTop="@mipmap/kehufuwu"
+                android:gravity="center"
+                android:text="客户服务"
+                android:textColor="#808080" />
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"></LinearLayout>
+
+</LinearLayout>

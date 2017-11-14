@@ -13,10 +13,7 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
-/**
- * @author Smile Wei
- * @since 2016/8/2.
- */
+
 public abstract class OkCallback implements Callback {
     private static final String SUCCESS_OK = "0000";
     public static final String ERROR_0014 = "500014";

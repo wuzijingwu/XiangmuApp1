@@ -1,7 +1,9 @@
-package com.smile.taobaodemo.ui.fragment;
+package com.smile.taobaodemo.presenter;
 
 
-
+import com.smile.taobaodemo.model.Fm_FenLei_model;
+import com.smile.taobaodemo.ui.fragment.BasePresenter;
+import com.smile.taobaodemo.view.FM_FenLei_View;
 
 public class Fm_FenLei_presenter extends BasePresenter<FM_FenLei_View> {
 

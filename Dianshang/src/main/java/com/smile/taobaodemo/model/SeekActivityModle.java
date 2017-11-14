@@ -1,4 +1,6 @@
-package com.smile.taobaodemo.ui.fragment;
+package com.smile.taobaodemo.model;
+
+import com.smile.taobaodemo.dao.MyApplication;
 
 import java.io.IOException;
 

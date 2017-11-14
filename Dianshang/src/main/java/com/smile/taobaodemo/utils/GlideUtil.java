@@ -10,10 +10,7 @@ import com.smile.taobaodemo.R;
 import com.smile.taobaodemo.widget.glide.GlideCircleTransform;
 import com.smile.taobaodemo.widget.glide.GlideRoundTransform;
 
-/**
- * @author Smile Wei
- * @since 2016/6/7.
- */
+
 public class GlideUtil {
 
     private static GlideCircleTransform circleTransform;

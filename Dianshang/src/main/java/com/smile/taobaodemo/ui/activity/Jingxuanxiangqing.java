@@ -19,7 +19,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.smile.taobaodemo.R;
 import com.smile.taobaodemo.bean.Mainhua;
-import com.smile.taobaodemo.ui.fragment.Okhttp;
+import com.smile.taobaodemo.bean.Okhttp;
 
 import java.io.File;
 import java.io.IOException;

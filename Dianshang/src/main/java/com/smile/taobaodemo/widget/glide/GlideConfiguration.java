@@ -9,10 +9,7 @@ import com.bumptech.glide.load.engine.cache.DiskLruCacheWrapper;
 import com.bumptech.glide.module.GlideModule;
 import com.smile.taobaodemo.utils.FileUtil;
 
-/**
- * @author Smile Wei
- * @since 2016/2/25.
- */
+
 public class GlideConfiguration implements GlideModule {
     @Override
     public void applyOptions(Context context, GlideBuilder builder) {

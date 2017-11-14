@@ -1,4 +1,4 @@
-package com.smile.taobaodemo.ui.fragment;
+package com.smile.taobaodemo.dao;
 
 import android.app.Application;
 import android.content.Context;

@@ -1,9 +1,6 @@
 package com.smile.taobaodemo.model.entity;
 
-/**
- * @author Smile Wei
- * @since 2016/8/10.
- */
+
 public class HomeBase {
     public static final String NULL_STRING = "";
     public static final double ZERO = 0;

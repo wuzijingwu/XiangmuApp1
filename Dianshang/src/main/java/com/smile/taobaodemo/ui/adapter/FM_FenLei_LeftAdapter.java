@@ -1,4 +1,4 @@
-package com.smile.taobaodemo.ui.fragment;
+package com.smile.taobaodemo.ui.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;

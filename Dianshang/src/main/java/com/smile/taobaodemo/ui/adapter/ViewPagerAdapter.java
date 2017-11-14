@@ -4,8 +4,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.smile.taobaodemo.ui.fragment.NavGowuFragment;
 import com.smile.taobaodemo.ui.fragment.NavFenleiFragment;
+import com.smile.taobaodemo.ui.fragment.NavGowuFragment;
 import com.smile.taobaodemo.ui.fragment.NavHomeFragment;
 import com.smile.taobaodemo.ui.fragment.NavMyFragment;
 import com.smile.taobaodemo.ui.fragment.NavWeitaoFragment;

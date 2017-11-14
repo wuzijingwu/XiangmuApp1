@@ -8,10 +8,7 @@ import com.smile.taobaodemo.model.entity.HomeTop;
 import com.smile.taobaodemo.model.impl.HomeModelImpl;
 import com.smile.taobaodemo.ui.contract.HomeContract;
 
-/**
- * @author Smile Wei
- * @since 2017/03/01.
- */
+
 
 public class HomePresenter implements HomeContract.Presenter {
     private HomeContract.View view;

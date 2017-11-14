@@ -13,10 +13,7 @@ import com.smile.taobaodemo.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-/**
- * @author Smile Wei
- * @since 2016.08.11
- */
+
 public class FooterLoading extends RelativeLayout {
 
     @BindView(R.id.loading_progress_bar)

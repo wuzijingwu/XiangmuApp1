@@ -9,10 +9,7 @@ import android.graphics.Paint;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
 
-/**
- * @author Smile Wei
- * @since 2016/2/25.
- */
+
 public class GlideCircleTransform extends BitmapTransformation {
     public GlideCircleTransform(Context context) {
         super(context);

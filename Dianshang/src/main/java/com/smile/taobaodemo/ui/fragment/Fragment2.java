@@ -20,6 +20,7 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.smile.taobaodemo.R;
+import com.smile.taobaodemo.bean.Okhttp;
 import com.smile.taobaodemo.bean.Shangcheng;
 
 import java.io.File;

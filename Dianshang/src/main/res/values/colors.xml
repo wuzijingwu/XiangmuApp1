@@ -11,4 +11,20 @@
 
     <color name="bg_main_color">#F0F0F0</color>
     <color name="divider_main_color">#CCC</color>
+
+    <color name = "main_grey" >#eeeeee</color >
+    <color name="divide_line">#eeeeee</color>
+    <color name = "text_666666" >#666666</color >
+
+
+    <color name="FenLeiBGColor">#e2e5e7</color>
+    <color name="FenLeiBGColor2">#ffffff</color>
+    <color name="View_BG">#e6e0e0</color>
+    //透明颜色
+    <color name="transparent">#00000000</color>
+    //加入购物车选中
+    <color name="add_buy">#5f1403</color>
+    <color name="colorRed">#ff0000</color>
+
+
 </resources>

@@ -17,10 +17,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 
-/**
- * @author Smile Wei
- * @since 2016/8/2.
- */
+
 public class OkHttp {
     private static OkHttpClient client;
 

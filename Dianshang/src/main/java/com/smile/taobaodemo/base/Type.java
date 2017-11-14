@@ -1,9 +1,5 @@
 package com.smile.taobaodemo.base;
 
-/**
- * @author Smile Wei
- * @since 2017/3/2.
- */
 
 public class Type {
 

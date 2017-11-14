@@ -2,6 +2,8 @@ package com.smile.taobaodemo.ui.fragment;
 
 import android.content.Context;
 
+import com.smile.taobaodemo.dao.MyApplication;
+import com.smile.taobaodemo.view.IView;
 
 
 public abstract class BasePresenter<T extends IView> {

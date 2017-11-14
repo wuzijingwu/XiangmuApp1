@@ -1,205 +1,173 @@
 package com.smile.taobaodemo.ui.activity;
 
-import android.app.Activity;
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Environment;
-import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
-import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiskCache;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.smile.taobaodemo.R;
-import com.smile.taobaodemo.bean.Shoubiao;
-import com.smile.taobaodemo.ui.fragment.MyApplication;
-import com.smile.taobaodemo.ui.fragment.Okhttp;
+import com.smile.taobaodemo.bean.SeekActivity_Bean;
+import com.smile.taobaodemo.ui.adapter.Activity_Seek_Adapter;
+import com.smile.taobaodemo.dao.MyApplication;
+import com.smile.taobaodemo.view.SeekActivity_View;
+import com.smile.taobaodemo.presenter.SeekActivity_presenter;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.List;
 
-import okhttp3.Request;
-
 /**
- * Created by dell on 2017/10/13.
+ * 搜索结果页面
  */
+public class SeekActivity extends AppCompatActivity implements View.OnClickListener, SeekActivity_View {
 
-public class SeekActivity extends Activity {
+    private RecyclerView seek_recyclerView;
+    private SeekActivity_presenter presenter;
 
-    private SwipeRefreshLayout swipeRefreshLayout;
-    private RecyclerView recyclerView;
-    private GridLayoutManager gridLayoutManager;
-    private String path = "http://169.254.105.18/mobile/index.php?act=goods&op=goods_list&page=100&gc_id=587";
+    private String uriPath = "http://" + MyApplication.getMyIP() + "/mobile/index.php?act=goods&op=goods_list&page=100&gc_id=587";
+    private SwipeRefreshLayout refreshlayout;
     private boolean boo;
-    private ImageLoader imageLoader;
-    //    &page=100
-
-    private Myrecycadapter myrecycadapter;
-    List<Shoubiao.DatasBean.GoodsListBean> goods_list;
-    private CheckBox seekcheckbox;
-    private int count = 0;
-    private LinearLayoutManager linearLayoutManager;
-
+    private Activity_Seek_Adapter adapter;
+    private CheckBox seekCK;
+    private ImageView toTop;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seek);
-        swipeRefreshLayout = findViewById(R.id.swipyRefreshLayout);
-        recyclerView = findViewById(R.id.seek_recyclerView);
-        seekcheckbox = findViewById(R.id.seek_checkbox);
+        InitView();
+        //请求数据
+        getData(uriPath);
 
-        gridLayoutManager = new GridLayoutManager(this, 2);
-        linearLayoutManager = new LinearLayoutManager(this);
-
-        recyclerView.setLayoutManager(gridLayoutManager);
-        getDates();
-
-        swipeRefreshLayout.setColorSchemeColors(Color.RED, Color.YELLOW, Color.BLUE, Color.GRAY, Color.GREEN);
-//        swipeRefreshLayout.setDirection(SwipyRefreshLayoutDirection.BOTH);
-
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+        //设置刷新时旋转的圆圈的颜色
+        refreshlayout.setColorSchemeColors(Color.RED, Color.YELLOW, Color.BLUE, Color.GRAY, Color.GREEN);
+        //设置支持上啦刷新还是下拉加载,还是全都支持
+//        refreshlayout.setDirection(SwipyRefreshLayoutDirection.BOTH);
+        refreshlayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 boo = true;
-                getDates();
-                swipeRefreshLayout.setRefreshing(false);
+                getData(uriPath);
+                refreshlayout.setRefreshing(false);
             }
+
+
+
+
         });
 
-        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                super.onScrollStateChanged(recyclerView, newState);
-                boo = true;
-                getDates();
-                swipeRefreshLayout.setRefreshing(false);
-            }
-        });
-        seekcheckbox.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                switch (count++) {
-                    case 0:
-                        recyclerView.setLayoutManager(gridLayoutManager);
-                        break;
-                    case 1:
-                        recyclerView.setLayoutManager(linearLayoutManager);
-                        count = 0;
-                        break;
+
+    }
+
+    private void getData(String uri) {
+        presenter.getData(uri);
+    }
+
+    private void InitView() {
+        ImageView goback = (ImageView) findViewById(R.id.goback);
+        //切换布局
+        seekCK = (CheckBox) findViewById(R.id.seek_checkbox);
+        seek_recyclerView = (RecyclerView) findViewById(R.id.seek_recyclerView);
+        seek_recyclerView.setLayoutManager(new GridLayoutManager(SeekActivity.this, 2));
+        //刷新工具
+        refreshlayout = (SwipeRefreshLayout) findViewById(R.id.swipyRefreshLayout);
+        //返回顶部的一个按钮,初始为影藏不可见
+        toTop = (ImageView) findViewById(R.id.toTop);
+        presenter = new SeekActivity_presenter(this);
+        goback.setOnClickListener(this);
+        seekCK.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.goback://返回按钮
+                finish();
+                break;
+            case R.id.seek_checkbox://默认是GrdiView显示效果,选中的话变成listview的显示效果
+                if (seekCK.isChecked()) {
+                    LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+                    seek_recyclerView.setLayoutManager(linearLayoutManager);
+                } else {
+                    GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
+                    seek_recyclerView.setLayoutManager(gridLayoutManager);
                 }
-            }
-        });
+                //记得重新设置一次适配器,不然刷新不过来
+                seek_recyclerView.setAdapter(adapter);
+                break;
+        }
     }
 
-    public void getDates() {
-        Okhttp.getAsync(path, new Okhttp.DataCallBack() {
-
-            private Myrecycadapter myrecycadapter;
-
+    @Override
+    public void getResultSucced(final String result) {
+        runOnUiThread(new Runnable() {
             @Override
-            public void requestFailure(Request request, IOException e) {
-
-            }
-
-            @Override
-            public void requestSuccess(String result) throws Exception {
+            public void run() {
                 Gson gson = new Gson();
-                Shoubiao shoubiao = gson.fromJson(result, Shoubiao.class);
-                List<Shoubiao.DatasBean.GoodsListBean> goods_list = shoubiao.getDatas().getGoods_list();
-                myrecycadapter = new Myrecycadapter(goods_list);
-                recyclerView.setAdapter(myrecycadapter);
+                SeekActivity_Bean bean = gson.fromJson(result, SeekActivity_Bean.class);
+                List<SeekActivity_Bean.DatasBean.GoodsListBean> goods_list = bean.getDatas().getGoods_list();
+                if (adapter == null) {
+                    adapter = new Activity_Seek_Adapter(goods_list, SeekActivity.this);
+                    seek_recyclerView.setAdapter(adapter);
+//                    seek_recyclerView.addItemDecoration(new SpaceItemDecoration(5));
+                } else {
+                    adapter.addData(goods_list, boo);
+                    adapter.notifyDataSetChanged();
+                }
+                //滑动监听,当条目滑动一定程度的时候让返回顶部的按钮显示
+                seek_recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+                    @Override
+                    public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                        super.onScrollStateChanged(recyclerView, newState);
+                        //首先得到页面布局
+                        RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
+                        //判断布局,如果是GridLayoutManager 布局,强转以后得到第一个可见的下标,大于5就
+                        //  让返回顶部的按钮显示出来,点击这个按钮返回下标为0的item
+                        if (layoutManager instanceof GridLayoutManager) {
+                            int position = ((GridLayoutManager) layoutManager).findFirstVisibleItemPosition();
+                            if (position > 5) {
+                                toTop.setVisibility(View.VISIBLE);
+                                toTop.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        seek_recyclerView.scrollToPosition(0);
+                                        //seek_recyclerView.smoothScrollToPosition(0);
+                                    }
+                                });
+                            } else {
+                                toTop.setVisibility(View.GONE);
+                            }
+                        } else if (layoutManager instanceof LinearLayoutManager) {
+                            int position = ((LinearLayoutManager) layoutManager).findFirstVisibleItemPosition();
+                            if (position > 10) {
+                                toTop.setVisibility(View.VISIBLE);
+                                toTop.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        seek_recyclerView.scrollToPosition(0);
+                                        //seek_recyclerView.smoothScrollToPosition(0);
+                                    }
+                                });
+                            } else {
+                                toTop.setVisibility(View.GONE);
+                            }
+                        }
+                    }
+                });
+
             }
         });
-    }
-
-    class Myrecycadapter extends RecyclerView.Adapter {
-        List<Shoubiao.DatasBean.GoodsListBean> goods_list;
-
-        private myViewHolder myviewholder;
-        private final DisplayImageOptions options;
-
-        public Myrecycadapter(List<Shoubiao.DatasBean.GoodsListBean> goods_list) {
-            this.goods_list = goods_list;
-            imageLoader = ImageLoader.getInstance();
-            File file = new File(Environment.getExternalStorageDirectory(), "Bwei");
-            if (!file.exists())
-                file.mkdirs();
-            ImageLoaderConfiguration configuration = new ImageLoaderConfiguration.Builder(SeekActivity.this)
-                    .diskCache(new UnlimitedDiskCache(file))
-                    .build();
-            imageLoader.init(configuration);
-            options = new DisplayImageOptions.Builder()
-                    .showImageOnLoading(R.mipmap.ic_launcher)
-                    .cacheOnDisk(true)
-                    .build();
-        }
-
-        @Override
-        public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View inflate = LayoutInflater.from(SeekActivity.this).inflate(R.layout.seekactivity_layout, parent, false);
-            return new myViewHolder(inflate);
-        }
-
-        @Override
-        public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-            myviewholder = (myViewHolder) holder;
-            myviewholder.textview.setText(goods_list.get(position).getGoods_name());
-//            myviewholder.imageview.disp
-            String path = goods_list.get(position).getGoods_image_url();
-            String replace = path.replace("127.0.0.1", MyApplication.getMyIP());
-            //加载图片
-            Glide.with(SeekActivity.this).load(replace)
-                    .error(R.mipmap.ic_empty)
-                    .placeholder(R.mipmap.loading)
-                    .into(myviewholder.imageview);
-//            getimage(replace, myviewholder.imageview);
-        }
-
-        @Override
-        public int getItemCount() {
-            return goods_list.size();
-        }
-
-        public class myViewHolder extends RecyclerView.ViewHolder {
-
-
-            private final ImageView imageview;
-            private final TextView textview;
-
-            public myViewHolder(View itemView) {
-                super(itemView);
-                imageview = itemView.findViewById(R.id.image_shoubaio);
-                textview = itemView.findViewById(R.id.text_xianging);
-            }
-        }
-
 
     }
 
-    public void getimage(String path, ImageView imageView) {
-
-        DisplayImageOptions options = new DisplayImageOptions.Builder()
-                .cacheOnDisk(true)
-                .cacheInMemory(true)
-                .build();
-        ImageLoader.getInstance().displayImage(path, imageView, options);
-
-
+    @Override
+    public Context context() {
+        return this;
     }
-
-
 }

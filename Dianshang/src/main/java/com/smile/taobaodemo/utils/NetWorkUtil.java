@@ -8,8 +8,7 @@ import android.net.NetworkInfo;
  * 检测网络工具类
  * 包含检测网络的相关方法
  *
- * @author Smile Wei
- * @since 2014.4.4
+ *
  */
 public class NetWorkUtil {
     /**

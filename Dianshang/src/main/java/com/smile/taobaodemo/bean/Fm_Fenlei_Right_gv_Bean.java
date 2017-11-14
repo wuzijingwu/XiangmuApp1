@@ -2,11 +2,7 @@ package com.smile.taobaodemo.bean;
 
 import java.util.List;
 
-/**
- * 作者: 赵虔
- * 时间: 2017/9/12
- * 类作用:右侧布局中,GridView的javaBean
- */
+
 
 public class Fm_Fenlei_Right_gv_Bean {
 

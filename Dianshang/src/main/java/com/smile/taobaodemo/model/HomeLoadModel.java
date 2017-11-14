@@ -6,10 +6,7 @@ import com.smile.taobaodemo.model.entity.HomeBottom;
 import com.smile.taobaodemo.model.entity.HomeTop;
 import com.smile.taobaodemo.presenter.OnLoadListener;
 
-/**
- * @author Smile Wei
- * @since 2016/9/22.
- */
+
 
 public interface HomeLoadModel extends LoadModel {
 

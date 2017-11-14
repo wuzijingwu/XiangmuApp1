@@ -1,5 +1,4 @@
-package com.smile.taobaodemo.ui.fragment;
-
+package com.smile.taobaodemo.view;
 
 
 public interface FM_FenLei_View extends IView {

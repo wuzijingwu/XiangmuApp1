@@ -1,15 +1,12 @@
 package com.smile.taobaodemo.ui.contract;
 
 
-import com.smile.taobaodemo.base.BasePresenter;
-import com.smile.taobaodemo.base.BaseView;
+import com.smile.taobaodemo.presenter.BasePresenter;
+import com.smile.taobaodemo.view.BaseView;
 import com.smile.taobaodemo.model.entity.HomeBottom;
 import com.smile.taobaodemo.model.entity.HomeTop;
 
-/**
- * @author Smile Wei
- * @since 2017/3/1.
- */
+
 
 public interface HomeContract {
     interface View extends BaseView {

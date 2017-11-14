@@ -2,10 +2,7 @@ package com.smile.taobaodemo.model.entity;
 
 import java.util.List;
 
-/**
- * @author Smile Wei
- * @since 2016/9/21.
- */
+
 
 public class HomeTop {
 
